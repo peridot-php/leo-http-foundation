@@ -1,7 +1,7 @@
 <?php
 
 use Evenement\EventEmitterInterface;
-use Peridot\Leo\Http\LeoHttp;
+use Peridot\Leo\HttpFoundation\LeoHttpFoundation;
 use Peridot\Leo\Leo;
 use Peridot\Plugin\Watcher\WatcherPlugin;
 use Peridot\Reporter\CodeCoverageReporters;
@@ -17,5 +17,5 @@ return function(EventEmitterInterface $emitter) {
     $coverage->register();
 
     $assertion = Leo::instance()->getAssertion();
-    $assertion->extend(new LeoHttp());
+    $assertion->extend(new LeoHttpFoundation());
 };

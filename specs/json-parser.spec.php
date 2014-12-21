@@ -1,5 +1,5 @@
 <?php
-use Peridot\Leo\Http\JsonParser;
+use Peridot\Leo\HttpFoundation\JsonParser;
 use Symfony\Component\HttpFoundation\Response;
 
 describe('JsonParser', function() {

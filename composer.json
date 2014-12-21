@@ -1,5 +1,5 @@
 {
-    "name": "peridot-php/leo-http",
+    "name": "peridot-php/leo-http-foundation",
     "description": "Leo assertions for testing HttpFoundation applications",
     "license": "MIT",
     "authors": [
@@ -17,7 +17,7 @@
     },
     "autoload": {
       "psr-4": {
-        "Peridot\\Leo\\Http\\":"src/"
+        "Peridot\\Leo\\HttpFoundation\\":"src/"
       }
     }
 }

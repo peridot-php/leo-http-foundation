@@ -1,11 +1,11 @@
 <?php
-namespace Peridot\Leo\Http;
+namespace Peridot\Leo\HttpFoundation;
 
 use Peridot\Leo\Assertion;
-use Peridot\Leo\Http\Matcher\AllowedMatcher;
-use Peridot\Leo\Http\Matcher\StatusMatcher;
+use Peridot\Leo\HttpFoundation\Matcher\AllowedMatcher;
+use Peridot\Leo\HttpFoundation\Matcher\StatusMatcher;
 
-class LeoHttp
+class LeoHttpFoundation
 {
     /**
      * Register http assertion methods.

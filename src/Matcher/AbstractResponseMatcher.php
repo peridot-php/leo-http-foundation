@@ -1,5 +1,5 @@
 <?php
-namespace Peridot\Leo\Http\Matcher;
+namespace Peridot\Leo\HttpFoundation\Matcher;
 
 use Peridot\Leo\Matcher\AbstractMatcher;
 use Symfony\Component\HttpFoundation\Response;

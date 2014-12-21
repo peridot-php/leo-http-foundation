@@ -1,5 +1,5 @@
 <?php
-namespace Peridot\Leo\Http;
+namespace Peridot\Leo\HttpFoundation;
 
 use Symfony\Component\HttpFoundation\Response;
 

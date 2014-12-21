@@ -1,5 +1,5 @@
 <?php
-use Peridot\Leo\Http\Matcher\AllowedMatcher;
+use Peridot\Leo\HttpFoundation\Matcher\AllowedMatcher;
 use Symfony\Component\HttpFoundation\Response;
 
 describe('AllowedMatcher', function() {
