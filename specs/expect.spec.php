@@ -57,4 +57,14 @@ describe('LeoHttp expectations', function() {
             });
         });
     });
+
+    describe('->json', function() {
+        it('should set the subject of the assertion chain to the json decoded response body', function() {
+            $json = json_encode(['name' => 'brian']);
+            $response = new Response();
+            $response->headers->set('content-type', 'application/json');
+            $response->setContent($json);
+            expect($response)->json->to->have->property('name');
+        });
+    });
 });

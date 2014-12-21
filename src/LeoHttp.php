@@ -29,5 +29,14 @@ class LeoHttp
             $this->flag('message', $message);
             return new StatusMatcher($expected);
         });
+
+        /**
+         * Property converts response body to json object and sets it
+         * as the new subject of the assertion chain.
+         */
+        $assertion->addProperty('json', function () {
+            $parser = new JsonParser($this->getActual());
+            return $this->setActual($parser->getJsonObject());
+        });
     }
 } 
