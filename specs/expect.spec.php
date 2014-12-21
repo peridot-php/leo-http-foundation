@@ -29,4 +29,32 @@ describe('LeoHttp expectations', function() {
             });
         });
     });
+
+    describe('->status()', function() {
+        it('should throw an exception if the response has an unexpected status code', function() {
+            expect(function() {
+                $response = new Response();
+                $response->setStatusCode(400);
+                expect($response)->to->have->status(200);
+            })->to->throw('Exception', 'Expected status code 200, got 400');
+        });
+
+        it('should allow a user message', function() {
+            expect(function() {
+                $response = new Response();
+                $response->setStatusCode(400);
+                expect($response)->to->have->status(200, 'wrong status');
+            })->to->throw('Exception', 'wrong status');
+        });
+
+        context('when negated', function() {
+            it('should throw an exception if status code matches', function() {
+                expect(function() {
+                    $response = new Response();
+                    $response->setStatusCode(200);
+                    expect($response)->to->not->have->status(200);
+                })->to->throw('Exception', 'Expected status code to not be 200');
+            });
+        });
+    });
 });

@@ -1,12 +1,10 @@
 <?php
 namespace Peridot\Leo\Http\Matcher;
 
-use Peridot\Leo\Matcher\AbstractMatcher;
 use Peridot\Leo\Matcher\Template\ArrayTemplate;
 use Peridot\Leo\Matcher\Template\TemplateInterface;
-use Symfony\Component\HttpFoundation\Response;
 
-class AllowedMatcher extends AbstractMatcher
+class AllowedMatcher extends AbstractResponseMatcher
 {
     /**
      * The diff between expected and actual allowed values.
@@ -76,18 +74,5 @@ class AllowedMatcher extends AbstractMatcher
         $this->diff = array_diff($this->actual, $this->expected);
 
         return empty($this->diff);
-    }
-
-    /**
-     * Validate that the expected value is an HttpFoundation\Response before returning it.
-     *
-     * @return Response
-     */
-    protected function getResponse($actual)
-    {
-        if (! $actual instanceof Response) {
-            throw new \InvalidArgumentException('HttpFoundation\Response required for expected value');
-        }
-        return $actual;
     }
 }
