@@ -16,6 +16,5 @@ return function(EventEmitterInterface $emitter) {
     $coverage = new CodeCoverageReporters($emitter);
     $coverage->register();
 
-    $assertion = Leo::instance()->getAssertion();
-    $assertion->extend(new LeoHttpFoundation());
+    Leo::assertion()->extend(new LeoHttpFoundation());
 };
