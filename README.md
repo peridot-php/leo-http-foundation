@@ -3,6 +3,7 @@
 [Leo](http://peridot-php.github.io/leo/) assertions for use with [HttpFoundation](http://symfony.com/doc/current/components/http_foundation/introduction.html)
 
 [![Build Status](https://travis-ci.org/peridot-php/leo-http-foundation.svg?branch=master)](https://travis-ci.org/peridot-php/leo-http-foundation)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/peridot-php/leo-http-foundation/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/peridot-php/leo-http-foundation/?branch=master)
 
 This set of assertions is evolving as needed. Please feel free to submit pull requests and make
 feature requests.

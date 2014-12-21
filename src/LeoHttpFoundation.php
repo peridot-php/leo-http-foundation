@@ -39,4 +39,4 @@ class LeoHttpFoundation
             return $this->setActual($parser->getJsonObject());
         });
     }
-} 
+}
