@@ -1,6 +1,8 @@
 <?php
 
 use Evenement\EventEmitterInterface;
+use Peridot\Leo\Http\LeoHttp;
+use Peridot\Leo\Leo;
 use Peridot\Plugin\Watcher\WatcherPlugin;
 use Peridot\Reporter\CodeCoverageReporters;
 use Peridot\Reporter\Dot\DotReporterPlugin;
@@ -14,5 +16,6 @@ return function(EventEmitterInterface $emitter) {
     $coverage = new CodeCoverageReporters($emitter);
     $coverage->register();
 
-    //$prophecy = new ProphecyPlugin($emitter);
+    $assertion = Leo::instance()->getAssertion();
+    $assertion->extend(new LeoHttp());
 };
