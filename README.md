@@ -29,7 +29,7 @@ contains **all** values passed in the `methods` array.
 
 ```php
 expect($response)->to->allow(['POST', 'GET']);
-expect($response)->to->not->allow(['GET]');
+expect($response)->to->not->allow(['GET']);
 ```
 
 ###->status(status, [message])
