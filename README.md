@@ -8,6 +8,15 @@
 This set of assertions is evolving as needed. Please feel free to submit pull requests and make
 feature requests.
 
+##Usage
+
+You can add HttpFoundation behavior to Leo by extending the Leo `assertion` property.
+
+```php
+$assertion = Leo::assertion();
+$assertion->extend(new LeoHttpFoundation());
+```
+
 ##Assertions
 
 ###->allow(methods, [message])
