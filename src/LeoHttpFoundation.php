@@ -1,10 +1,15 @@
 <?php
+
 namespace Peridot\Leo\HttpFoundation;
 
 use Peridot\Leo\Assertion;
 use Peridot\Leo\HttpFoundation\Matcher\AllowedMatcher;
 use Peridot\Leo\HttpFoundation\Matcher\StatusMatcher;
 
+/**
+ * Class LeoHttpFoundation
+ * @package Peridot\Leo\HttpFoundation
+ */
 class LeoHttpFoundation
 {
     /**
@@ -31,12 +36,12 @@ class LeoHttpFoundation
         });
 
         /**
-         * Property converts response body to json object and sets it
+         * Property converts response body to json object (or array) and sets it
          * as the new subject of the assertion chain.
          */
-        $assertion->addProperty('json', function () {
+        $assertion->addProperty('json', function ($assoc = false, $depth = 512, $options = 0) {
             $parser = new JsonParser($this->getActual());
-            return $this->setActual($parser->getJsonObject());
+            return $this->setActual($parser->getJsonObject($assoc, $depth, $options));
         });
     }
 }
