@@ -9,6 +9,10 @@ use Peridot\Reporter\Dot\DotReporterPlugin;
 use Peridot\Reporter\ListReporter\ListReporterPlugin;
 
 return function(EventEmitterInterface $emitter) {
+    $emitter->on('peridot.start', function (\Peridot\Console\Environment $environment) {
+        $environment->getDefinition()->getArgument('path')->setDefault('specs');
+    });
+
     $watcher = new WatcherPlugin($emitter);
     $dot = new DotReporterPlugin($emitter);
     $list = new ListReporterPlugin($emitter);

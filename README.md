@@ -46,10 +46,16 @@ expect($response)->to->not->have->status(400);
 
 ###->json
 
+* @param `bool` $assoc [optional]
+* @param `int` $depth [optional]
+* @param `int` $options [optional]
+
 A language chain that parses the response body as json and sets it as the subject
-of the assertion chain.
+of the assertion chain.  The options parameters for <code>json_decode()</code> may 
+also be included.
 
 ```php
 expect($response)->json->to->have->property('name');
 expect($response)->json->to->loosely->equal($expected);
+expect($response)->json(true, 999, JSON_BIGINT_AS_STRING)->to->equal($expected);
 ```

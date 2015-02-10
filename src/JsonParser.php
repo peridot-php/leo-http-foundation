@@ -1,8 +1,14 @@
 <?php
+
 namespace Peridot\Leo\HttpFoundation;
 
+use InvalidArgumentException;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Class JsonParser
+ * @package Peridot\Leo\HttpFoundation
+ */
 class JsonParser
 {
     /**
@@ -17,11 +23,12 @@ class JsonParser
 
     /**
      * @param $response
+     * @throws InvalidArgumentException
      */
     public function __construct($response)
     {
         if (! $response instanceof Response) {
-            throw new \InvalidArgumentException('JsonParser requires an HttpFoundation\Response');
+            throw new InvalidArgumentException('JsonParser requires an HttpFoundation\Response');
         }
         $this->response = $response;
     }
@@ -30,18 +37,19 @@ class JsonParser
      * Return an object from a decoded response body.
      *
      * @return object
+     * @throws InvalidArgumentException
      */
-    public function getJsonObject()
+    public function getJsonObject($assoc, $depth, $options)
     {
         if (! preg_match(static::$jsonResponse, $this->response->headers->get('content-type'))) {
-            throw new \InvalidArgumentException("JsonParser requires response with json content type");
+            throw new InvalidArgumentException("JsonParser requires response with json content type");
         }
 
-        $object = json_decode($this->response->getContent());
+        $object = json_decode($this->response->getContent(), $assoc, $depth, $options);
 
         $error = json_last_error();
         if (JSON_ERROR_NONE !== $error) {
-            throw new \InvalidArgumentException($this->transformError($error));
+            throw new InvalidArgumentException($this->transformError($error));
         }
 
         return $object;
