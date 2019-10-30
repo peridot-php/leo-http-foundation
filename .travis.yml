@@ -1,17 +1,13 @@
 language: php
+dist: bionic
 
 php:
-  - 5.6
-  - 5.5
-  - 5.4
-  - hhvm
-  - hhvm-nightly
+  - 7.1
+  - 7.2
+  - 7.3
 
 matrix:
   fast_finish: true
-  allow_failures:
-    - php: hhvm
-    - php: hhvm-nightly
 
 install:
   - composer install --prefer-source
